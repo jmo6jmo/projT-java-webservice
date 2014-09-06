@@ -50,6 +50,9 @@ hs_err_pid*
 #Gradle.gitignore
 .gradle
 build/
+.classpath
+.project
+
 
 # Ignore Gradle GUI config
 gradle-app.setting
