@@ -10,13 +10,14 @@ buildscript {
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
+apply plugin: 'eclipse-wtp'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
+apply plugin: 'war'
 
-jar {
-    baseName = 'gs-rest-service'
-    version =  '0.1.0'
+war {
+	baseName = 'gs-rest-service'
+	version = '0.1.0'
 }
 
 repositories {
@@ -25,8 +26,13 @@ repositories {
     maven { url "http://repo.spring.io/libs-release" }
 }
 
+configurations {
+    providedRuntime
+}
+
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
+    providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
     testCompile("junit:junit")
 }
 
